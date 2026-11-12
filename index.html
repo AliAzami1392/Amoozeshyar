@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174ea6">
+  <title>آموزش‌یار</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand">آموزش‌یار</div><span>نسخه آزمایشی</span></header>
+  <main>
+    <section id="intro" class="panel">
+      <div class="hero-mark">آ</div>
+      <h1>به آموزش‌یار خوش آمدید</h1>
+      <p>در این برنامه می‌توانید آموزش‌های رایگان را ببینید و بسته معلم خصوصی را تهیه کنید.</p>
+      <button class="primary" onclick="show('auth')">ادامه</button>
+    </section>
+
+    <section id="auth" class="panel hidden">
+      <h2>ثبت‌نام و ورود</h2>
+      <p class="muted">برای آزمایش نسخه اولیه، اطلاعات واقعی یا حساس وارد نکنید.</p>
+      <label>نام نمایشی</label><input id="displayName" maxlength="40" placeholder="مثلاً دانش‌آموز">
+      <label>روش ورود آزمایشی</label>
+      <input id="demoCode" maxlength="30" placeholder="یک نام کاربری آزمایشی">
+      <button class="primary" onclick="enterApp()">ورود / ثبت‌نام آزمایشی</button>
+      <button class="link" onclick="show('intro')">بازگشت</button>
+    </section>
+
+    <section id="home" class="hidden">
+      <div class="welcome"><h2 id="welcomeTitle">صفحه اصلی</h2><p>یکی از بخش‌ها را انتخاب کنید.</p></div>
+      <div class="tiles">
+        <button class="tile" onclick="show('free')"><span>📚</span><strong>آموزش‌های رایگان</strong><small>معرفی بسته معلم خصوصی</small></button>
+        <button class="tile" onclick="show('purchase')"><span>🎓</span><strong>خرید بسته معلم خصوصی</strong><small>مشاهده توضیحات و قیمت</small></button>
+      </div>
+      <button class="link" onclick="show('admin')">ورود به پنل مدیریت آزمایشی</button>
+    </section>
+
+    <section id="free" class="panel hidden">
+      <h2>آموزش‌های رایگان</h2>
+      <div id="freeList" class="content-list"><p class="muted">هنوز آموزشی اضافه نشده است.</p></div>
+      <button class="link" onclick="show('home')">بازگشت</button>
+    </section>
+
+    <section id="purchase" class="panel hidden">
+      <h2>بسته معلم خصوصی</h2>
+      <div id="packageInfo"><p>توضیحات و قیمت بسته پس از ثبت در پنل مدیریت نمایش داده می‌شود.</p></div>
+      <button class="primary" onclick="alert('درگاه پرداخت هنوز متصل نشده است. اتصال درگاه باید با هماهنگی و مجوز والدین انجام شود.')">پرداخت و خرید</button>
+      <p class="muted">پرداخت در این نسخه فعال نیست؛ هیچ اطلاعات کارت بانکی وارد نکنید.</p>
+      <button class="link" onclick="show('home')">بازگشت</button>
+    </section>
+
+    <section id="admin" class="panel hidden">
+      <h2>پنل مدیریت آزمایشی</h2>
+      <p class="muted">این پنل فعلاً فقط روی همین دستگاه و برای نمایش اولیه کار می‌کند؛ هنوز ورود امن مدیر و ذخیره‌سازی آنلاین ندارد.</p>
+      <label>عنوان آموزش یا ابزار</label><input id="itemTitle" maxlength="80" placeholder="عنوان">
+      <label>توضیحات</label><textarea id="itemDesc" rows="3" maxlength="500" placeholder="توضیحات کوتاه"></textarea>
+      <label>نوع محتوا</label>
+      <select id="itemType"><option value="free">آموزش رایگان</option><option value="tool">ابزار</option></select>
+      <button class="primary" onclick="addItem()">افزودن به فهرست آزمایشی</button>
+      <hr>
+      <h3>تنظیم معرفی بسته</h3>
+      <label>توضیحات بسته</label><textarea id="pkgDesc" rows="3" maxlength="500" placeholder="توضیحات بسته معلم خصوصی"></textarea>
+      <label>قیمت (تومان)</label><input id="pkgPrice" inputmode="numeric" placeholder="مثلاً ۱۰۰۰۰۰">
+      <button class="primary" onclick="savePackage()">ذخیره اطلاعات بسته</button>
+      <button class="link" onclick="show('home')">بازگشت</button>
+    </section>
+  </main>
+  <footer>آموزش‌یار • نسخه آزمایشی</footer>
+  <script src="app.js"></script>
+</body>
+</html>

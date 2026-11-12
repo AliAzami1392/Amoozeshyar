@@ -1,0 +1,11 @@
+{
+  "name": "آموزش‌یار",
+  "short_name": "آموزش‌یار",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fb",
+  "theme_color": "#174ea6",
+  "icons": []
+}
