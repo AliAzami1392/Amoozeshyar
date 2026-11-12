@@ -1,4 +1,17 @@
-const sections=['intro','auth','home','free','purchase','admin'];
+const ADMIN_PASSWORD =Ali13921405110
+
+function adminLogin() {
+  const password = prompt("رمز ورود مدیر آموزشیار را وارد کنید:");
+
+  if (password === null) return;
+
+  if (password === ADMIN_PASSWORD) {
+    alert("خوش آمدید، علی اعظمی اردکانی");
+    show("admin");
+  } else {
+    alert("رمز عبور اشتباه است!");
+  }
+}const sections=['intro','auth','home','free','purchase','admin'];
 function show(id){sections.forEach(s=>document.getElementById(s).classList.toggle('hidden',s!==id));if(id==='free')renderItems();}
 function enterApp(){const name=document.getElementById('displayName').value.trim()||'دانش‌آموز';const code=document.getElementById('demoCode').value.trim();if(!code){alert('برای ورود آزمایشی یک نام کاربری وارد کنید.');return;}document.getElementById('welcomeTitle').textContent='خوش آمدی، '+name;show('home');}
 function getItems(){try{return JSON.parse(localStorage.getItem('demoItems')||'[]')}catch(e){return[]}}
