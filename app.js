@@ -1,4 +1,4 @@
-const ADMIN_PASSWORD =Ali13921405110
+const ADMIN_PASSWORD ="Ali13921405110";
 
 function adminLogin() {
   const password = prompt("رمز ورود مدیر آموزشیار را وارد کنید:");
